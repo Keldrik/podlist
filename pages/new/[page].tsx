@@ -7,6 +7,7 @@ import { getNewEpisodes } from '../../logic/podlistapi';
 import { episode } from '../../models/episode';
 import { Pagination, paginationData } from '../../components/pagination';
 import EpisodeList from '../../components/episodelist';
+import Head from 'next/head';
 
 const NewPage: NextPage<{ el: episode[]; pd: paginationData }> = ({
   el,
@@ -15,6 +16,18 @@ const NewPage: NextPage<{ el: episode[]; pd: paginationData }> = ({
   const router = useRouter();
   return (
     <div>
+      <Head>
+        <title>
+          Neue Episoden Seite {pd?.current} - Podlist.de - Das deutsche Podcast
+          Verzeichnis
+        </title>
+        {pd ? (
+          <link
+            href={`https://podlist.de/new/${pd?.current}`}
+            rel="canonical"
+          />
+        ) : null}
+      </Head>
       {router.isFallback ? (
         <div className="h-64" />
       ) : (

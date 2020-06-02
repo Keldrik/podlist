@@ -11,6 +11,7 @@ import {
 import { Pagination, paginationData } from '../../../../components/pagination';
 import SectionHeader from '../../../../components/sectionheader';
 import EpisodeItem from '../../../../components/episodeitem';
+import Head from 'next/head';
 
 const PodcastPage: NextPage<{
   p: podcast;
@@ -20,6 +21,18 @@ const PodcastPage: NextPage<{
   const router = useRouter();
   return (
     <div>
+      <Head>
+        <title>
+          {p?.title} Seite {pd?.current} - Podlist.de - Das deutsche Podcast
+          Verzeichnis
+        </title>
+        {pd ? (
+          <link
+            href={`https://podlist.de/podcast/${p.podlistUrl}/all/${pd?.current}`}
+            rel="canonical"
+          />
+        ) : null}
+      </Head>
       {router.isFallback ? (
         <div className="h-64" />
       ) : (

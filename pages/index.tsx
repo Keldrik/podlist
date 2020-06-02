@@ -5,9 +5,14 @@ import { podcast } from '../models/podcast';
 import { getNewEpisodes, getRandomPodcast } from '../logic/podlistapi';
 import SectionHeader from '../components/sectionheader';
 import PodcastFeature from '../components/podcastfeature';
+import Head from 'next/head';
 
 const HomePage: NextPage<{ rp: podcast; pl: podcast[] }> = ({ rp, pl }) => (
   <div>
+    <Head>
+      <title>Podlist.de - Das deutsche Podcast Verzeichnis</title>
+      <link href="https://podlist.de" rel="canonical" />
+    </Head>
     <section className="pt-2 pb-8">
       <SectionHeader title="Kennst du den schon?" />
       <PodcastFeature p={rp} />

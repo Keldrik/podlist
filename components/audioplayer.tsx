@@ -121,7 +121,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
   );
 
   return (
-    <div className="bg-orange-500 shadow-md flex items-center">
+    <div className="bg-orange-500 shadow-md flex items-center lg:w-2/3 my-6">
       <audio
         ref={audioElement}
         src={episode.enclosure.url}

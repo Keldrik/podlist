@@ -7,6 +7,7 @@ import { getAllPodcast } from '../../../logic/podlistapi';
 import PodcastGrid from '../../../components/podcastgrid';
 import { Pagination, paginationData } from '../../../components/pagination';
 import SectionHeader from '../../../components/sectionheader';
+import Head from 'next/head';
 
 const AllPage: NextPage<{ pl: podcast[]; pd: paginationData }> = ({
   pl,
@@ -15,6 +16,18 @@ const AllPage: NextPage<{ pl: podcast[]; pd: paginationData }> = ({
   const router = useRouter();
   return (
     <div>
+      <Head>
+        <title>
+          Alle Podcasts Seite {pd?.current} - Podlist.de - Das deutsche Podcast
+          Verzeichnis
+        </title>
+        {pd ? (
+          <link
+            href={`https://podlist.de/podcast/all/${pd?.current}`}
+            rel="canonical"
+          />
+        ) : null}
+      </Head>
       {router.isFallback ? (
         <div className="h-64" />
       ) : (
