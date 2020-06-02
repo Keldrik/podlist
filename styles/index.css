@@ -1,0 +1,41 @@
+/* purgecss start ignore */
+@tailwind base;
+
+@tailwind components;
+
+body {
+    background-color: rgba(26, 32, 44, 1);
+    color: rgba(226, 232, 240, 1);
+}
+
+/* purgecss end ignore */
+
+.paggrpbtn {
+    @apply relative inline-flex items-center p-1 w-10 border-l border-gray-900 bg-orange-500 text-xl font-semibold;
+}
+
+.episodeContent h1 {
+    @apply text-3xl pt-2;
+}
+
+.episodeContent h2 {
+    @apply text-2xl pt-2;
+}
+
+.episodeContent h3 {
+    @apply text-xl pt-1;
+}
+
+.episodeContent h4 {
+    @apply text-lg pt-1;
+}
+
+.episodeContent a {
+    @apply text-orange-500
+}
+
+.episodeContent a:hover {
+    @apply text-gray-500
+}
+
+@tailwind utilities;
