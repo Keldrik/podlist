@@ -21,6 +21,10 @@ const NewPage: NextPage<{ el: episode[]; pd: paginationData }> = ({
           Neue Episoden Seite {pd?.current} - Podlist.de - Das deutsche Podcast
           Verzeichnis
         </title>
+        <meta
+          name="description"
+          content={`Alle neuen im Podcast Verzeichnis veröffentlichten Episoden nach Datum sortiert. Seite ${pd?.current} von ${pd?.max}`}
+        />
         {pd ? (
           <link
             href={`https://podlist.de/new/${pd?.current}`}

@@ -17,6 +17,10 @@ const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
           {e?.title} - {e?.podcastTitle} - Podlist.de - Das deutsche Podcast
           Verzeichnis
         </title>
+        <meta
+          name="description"
+          content={`${e?.summary.toString().substr(0, 250)}`}
+        />
         {e ? (
           <link
             href={`https://podlist.de/podcast/${e.podcastUrl}/${e?.podlistUrl}`}

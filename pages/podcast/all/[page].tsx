@@ -21,6 +21,10 @@ const AllPage: NextPage<{ pl: podcast[]; pd: paginationData }> = ({
           Alle Podcasts Seite {pd?.current} - Podlist.de - Das deutsche Podcast
           Verzeichnis
         </title>
+        <meta
+          name="description"
+          content={`Alphabetisch sortierte Übersicht aller in das deutsche Podcast-Verzeichnis eingetragenen Podcasts. Seite ${pd?.current} von ${pd?.max}`}
+        />
         {pd ? (
           <link
             href={`https://podlist.de/podcast/all/${pd?.current}`}

@@ -26,6 +26,10 @@ const PodcastPage: NextPage<{
           {p?.title} Seite {pd?.current} - Podlist.de - Das deutsche Podcast
           Verzeichnis
         </title>
+        <meta
+          name="description"
+          content={`Beschreibung, Feed und Übersicht aller Episoden für den ${p?.title} Podcast. Seite ${pd?.current} von ${pd?.max}`}
+        />
         {pd ? (
           <link
             href={`https://podlist.de/podcast/${p.podlistUrl}/all/${pd?.current}`}

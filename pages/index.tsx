@@ -11,6 +11,10 @@ const HomePage: NextPage<{ rp: podcast; pl: podcast[] }> = ({ rp, pl }) => (
   <div>
     <Head>
       <title>Podlist.de - Das deutsche Podcast Verzeichnis</title>
+      <meta
+        name="description"
+        content="Podlist ist ein deutschsprachiges Podcast-Verzeichnis. Mit der Übersicht und einer Suchfunktion findest du alle Podcasts, die du hören willst."
+      />
       <link href="https://podlist.de" rel="canonical" />
     </Head>
     <section className="pt-2 pb-8">
