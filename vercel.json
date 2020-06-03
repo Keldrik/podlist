@@ -1,7 +1,5 @@
 {
   "redirects": [
-    { "source": "/podcast/auswahl/der-gameone-plauschangriff/:page", "destination": "/podcast/plauschangriff/all/:page" },
-    { "source": "/podcast/episode/der-gameone-plauschangriff/:episodeurl", "destination": "/podcast/plauschangriff/:episodeurl" },
     { "source": "/neu/index/:page", "destination": "/new/:page" },
     { "source": "/podcast/alle/:page", "destination": "/podcast/all/:page" },
     { "source": "/podcast/auswahl/:podcasturl/:page", "destination": "/podcast/:podcasturl/all/:page" },
