@@ -19,7 +19,11 @@ const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
         </title>
         <meta
           name="description"
-          content={`${e?.summary.toString().substr(0, 250)}`}
+          content={`${
+            e?.summary
+              ? e?.summary?.toString().substr(0, 250)
+              : e?.description?.toString().substr(0, 250)
+          }`}
         />
         {e ? (
           <link
