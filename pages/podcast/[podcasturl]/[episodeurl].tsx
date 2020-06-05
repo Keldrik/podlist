@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const episodeurl = params.episodeurl.toString();
   return {
     props: { e: await getSingleEpisode(podcasturl, episodeurl) },
-    unstable_revalidate: 600,
+    unstable_revalidate: 60,
   };
 };
 

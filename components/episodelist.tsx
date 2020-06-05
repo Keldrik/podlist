@@ -4,7 +4,6 @@ import EpisodeItem from './episodeitem';
 import { dateHeadText } from '../logic/helper';
 
 const EpisodeList: React.FunctionComponent<{ el: episode[] }> = ({ el }) => {
-  const today = new Date(Date.now());
   let lastDateHead = new Date(Date.now());
   return (
     <div className="flex flex-wrap">

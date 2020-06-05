@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   return {
     props: { el: episodeList, pd: pagda },
-    unstable_revalidate: 600,
+    unstable_revalidate: 60,
   };
 };
 
