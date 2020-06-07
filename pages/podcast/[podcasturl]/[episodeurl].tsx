@@ -43,19 +43,29 @@ const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
           <h1 className="text-3xl truncate pb-1" itemProp="name">
             {e.title}
           </h1>
-          <Link
-            href="/podcast/[podcasturl]/all/[page]"
-            as={`/podcast/${e.podcastUrl}/all/1`}
+          <div
+            itemProp="partOfSeries"
+            itemScope
+            itemType="http://schema.org/PodcastSeries"
           >
-            <a>
-              <h2
-                className="text-xl pb-4 text-gray-500 hover:text-orange-500"
-                itemProp="partOfSeries"
-              >
-                {e.podcastTitle}
-              </h2>
-            </a>
-          </Link>
+            <meta
+              itemProp="url"
+              content={`https://podlist.de/podcast/${e.podcastUrl}/all/1`}
+            />
+            <Link
+              href="/podcast/[podcasturl]/all/[page]"
+              as={`/podcast/${e.podcastUrl}/all/1`}
+            >
+              <a>
+                <h2
+                  className="text-xl pb-4 text-gray-500 hover:text-orange-500"
+                  itemProp="name"
+                >
+                  {e.podcastTitle}
+                </h2>
+              </a>
+            </Link>
+          </div>
           <AudioPlayer episode={e}></AudioPlayer>
           <div
             className="episodeContent pt-4"

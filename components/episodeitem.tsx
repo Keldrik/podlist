@@ -29,32 +29,44 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
       </Link>
     </div>
     <div className="w-full md:col-span-2 xl:col-span-3 pt-4 md:pt-2 pb-4 px-3 bg-gray-800">
-      <Link
-        href="/podcast/[podcasturl]/[episodeurl]"
-        as={`/podcast/${e.podcastUrl}/${e.podlistUrl}`}
+      <div>
+        <Link
+          href="/podcast/[podcasturl]/[episodeurl]"
+          as={`/podcast/${e.podcastUrl}/${e.podlistUrl}`}
+        >
+          <a>
+            <h3
+              className="truncate font-semibold text-lg hover:text-orange-500 transition duration-300 ease-in-out"
+              itemProp="name"
+            >
+              {e.title}
+            </h3>
+          </a>
+        </Link>
+      </div>
+      <div
+        itemProp="partOfSeries"
+        itemScope
+        itemType="http://schema.org/PodcastSeries"
       >
-        <a>
-          <h3
-            className="truncate font-semibold text-lg hover:text-orange-500 transition duration-300 ease-in-out"
-            itemProp="name"
-          >
-            {e.title}
-          </h3>
-        </a>
-      </Link>
-      <Link
-        href="/podcast/[podcasturl]/all/[page]"
-        as={`/podcast/${e.podcastUrl}/all/1`}
-      >
-        <a>
-          <h4
-            className="truncate font-medium pt-1 hover:text-orange-500 transition duration-300 ease-in-out"
-            itemProp="partOfSeries"
-          >
-            {e.podcastTitle}
-          </h4>
-        </a>
-      </Link>
+        <meta
+          itemProp="url"
+          content={`https://podlist.de/podcast/${e.podcastUrl}/all/1`}
+        />
+        <Link
+          href="/podcast/[podcasturl]/all/[page]"
+          as={`/podcast/${e.podcastUrl}/all/1`}
+        >
+          <a>
+            <h4
+              className="truncate font-medium pt-1 hover:text-orange-500 transition duration-300 ease-in-out"
+              itemProp="name"
+            >
+              {e.podcastTitle}
+            </h4>
+          </a>
+        </Link>
+      </div>
       <p className="pt-2 text-gray-500 text-sm">{`${timeString(
         new Date(e.published)
       )} - ${dateHeadText(new Date(e.published))}`}</p>
