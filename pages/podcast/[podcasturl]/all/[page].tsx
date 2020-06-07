@@ -40,10 +40,16 @@ const PodcastPage: NextPage<{
       {router.isFallback ? (
         <div className="h-64" />
       ) : (
-        <section className="pt-2 pb-8">
-          <h1 className="text-3xl uppercase pb-2">{p.title}</h1>
+        <section
+          className="pt-2 pb-8"
+          itemScope
+          itemType="http://schema.org/PodcastSeries"
+        >
+          <h1 className="text-3xl uppercase pb-2" itemProp="name">
+            {p.title}
+          </h1>
           <h2 className="pb-6 text-gray-500 text-lg">{p.subtitle}</h2>
-          <p>{p.description}</p>
+          <p itemProp="description">{p.description}</p>
           <div className="pt-8 pb-4">
             <SectionHeader title="Neue Episoden" />
             <div className="flex flex-wrap">

@@ -121,7 +121,13 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
   );
 
   return (
-    <div className="bg-orange-500 shadow-md flex items-center lg:w-2/3 my-6">
+    <div
+      className="bg-orange-500 shadow-md flex items-center lg:w-2/3 my-6"
+      itemProp="audio"
+      itemScope
+      itemType="http://schema.org/AudioObject"
+    >
+      <meta itemProp="url" content={episode.enclosure.url} />
       <audio
         ref={audioElement}
         src={episode.enclosure.url}

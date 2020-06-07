@@ -4,7 +4,11 @@ import { dateHeadText, timeString } from '../logic/helper';
 import Link from 'next/link';
 
 const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
-  <div className="w-full md:w-1/2 md:grid md:grid-rows-1 md:grid-cols-3 xl:grid-cols-4 md:grid-flow-row md:gap-0 p-3">
+  <div
+    className="w-full md:w-1/2 md:grid md:grid-rows-1 md:grid-cols-3 xl:grid-cols-4 md:grid-flow-row md:gap-0 p-3"
+    itemScope
+    itemType="http://schema.org/Episode"
+  >
     <div className="w-1/4 md:w-full md:col-span-1">
       <Link
         href="/podcast/[podcasturl]/[episodeurl]"
@@ -26,7 +30,10 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         as={`/podcast/${e.podcastUrl}/${e.podlistUrl}`}
       >
         <a>
-          <h3 className="truncate font-semibold text-lg hover:text-orange-500 transition duration-300 ease-in-out">
+          <h3
+            className="truncate font-semibold text-lg hover:text-orange-500 transition duration-300 ease-in-out"
+            itemProp="name"
+          >
             {e.title}
           </h3>
         </a>
@@ -36,7 +43,10 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         as={`/podcast/${e.podcastUrl}/all/1`}
       >
         <a>
-          <h4 className="truncate font-medium pt-1 hover:text-orange-500 transition duration-300 ease-in-out">
+          <h4
+            className="truncate font-medium pt-1 hover:text-orange-500 transition duration-300 ease-in-out"
+            itemProp="partOfSeries"
+          >
             {e.podcastTitle}
           </h4>
         </a>

@@ -35,14 +35,23 @@ const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
       {router.isFallback ? (
         <div className="h-64" />
       ) : (
-        <section className="pt-2 pb-8">
-          <h1 className="text-3xl truncate pb-1">{e.title}</h1>
+        <section
+          className="pt-2 pb-8"
+          itemScope
+          itemType="http://schema.org/Episode"
+        >
+          <h1 className="text-3xl truncate pb-1" itemProp="name">
+            {e.title}
+          </h1>
           <Link
             href="/podcast/[podcasturl]/all/[page]"
             as={`/podcast/${e.podcastUrl}/all/1`}
           >
             <a>
-              <h2 className="text-xl pb-4 text-gray-500 hover:text-orange-500">
+              <h2
+                className="text-xl pb-4 text-gray-500 hover:text-orange-500"
+                itemProp="partOfSeries"
+              >
                 {e.podcastTitle}
               </h2>
             </a>
@@ -50,6 +59,7 @@ const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
           <AudioPlayer episode={e}></AudioPlayer>
           <div
             className="episodeContent pt-4"
+            itemProp="description"
             dangerouslySetInnerHTML={{
               __html: e.content || e.description || e.summary,
             }}

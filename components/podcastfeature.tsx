@@ -3,7 +3,11 @@ import { podcast } from '../models/podcast';
 import Link from 'next/link';
 
 const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
-  <div className="md:flex bg-gray-800 p-4 md:p-0 shadow-md">
+  <div
+    className="md:flex bg-gray-800 p-4 md:p-0 shadow-md"
+    itemScope
+    itemType="http://schema.org/PodcastSeries"
+  >
     <div className="w-1/2 md:w-1/3 pr-6">
       <Link
         href="/podcast/[podcasturl]/all/[page]"
@@ -15,6 +19,7 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
             src={p.podlistImage}
             loading="lazy"
             alt={p.title}
+            itemProp="image"
           />
         </a>
       </Link>
@@ -25,12 +30,15 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
         as={`/podcast/${p.podlistUrl}/all/1`}
       >
         <a>
-          <h3 className="text-3xl lg:text-4xl pb-1 pt-2 md:pt-4 hover:text-orange-500">
+          <h3
+            className="text-3xl lg:text-4xl pb-1 pt-2 md:pt-4 hover:text-orange-500"
+            itemProp="name"
+          >
             {p.title.substring(0, 60)}
           </h3>
         </a>
       </Link>
-      <p className="text-gray-500 lg:text-xl md:pb-6">
+      <p className="text-gray-500 lg:text-xl md:pb-6" itemProp="description">
         {p.description.length < 250
           ? p.description.substring(0, 250)
           : p.description.substring(0, 250) + ' ...'}

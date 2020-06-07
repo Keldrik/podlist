@@ -3,7 +3,11 @@ import { podcast } from '../models/podcast';
 import Link from 'next/link';
 
 const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
-  <div className="bg-gray-800 shadow-md hover:shadow-none hover:opacity-75 transform hover:scale-95 transition duration-300 ease-in-out">
+  <div
+    className="bg-gray-800 shadow-md hover:shadow-none hover:opacity-75 transform hover:scale-95 transition duration-300 ease-in-out"
+    itemScope
+    itemType="http://schema.org/PodcastSeries"
+  >
     <Link
       href="/podcast/[podcasturl]/all/[page]"
       as={`/podcast/${p.podlistUrl}/all/1`}
@@ -14,8 +18,11 @@ const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
           src={p.podlistImage}
           loading="lazy"
           alt={p.title}
+          itemProp="image"
         />
-        <h3 className="p-2 truncate text-center font-semibold">{p.title}</h3>
+        <h3 className="p-2 truncate text-center font-semibold" itemProp="name">
+          {p.title}
+        </h3>
       </a>
     </Link>
   </div>
