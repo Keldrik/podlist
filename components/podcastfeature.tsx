@@ -8,6 +8,10 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
     itemScope
     itemType="http://schema.org/PodcastSeries"
   >
+    <meta
+      itemProp="url"
+      content={`https://podlist.de/podcast/${p.podlistUrl}/all/1`}
+    />
     <div className="w-1/2 md:w-1/3 pr-6">
       <Link
         href="/podcast/[podcasturl]/all/[page]"
