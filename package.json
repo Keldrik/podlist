@@ -10,18 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "next": "^9.4.4",
+    "next": "^9.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^3.1.14"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.2.0",
-    "@types/node": "^14.0.11",
-    "@types/react": "^16.9.35",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.45",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
-    "tailwindcss": "^1.4.6",
-    "typescript": "^3.9.5"
+    "tailwindcss": "^1.6.2",
+    "typescript": "^3.9.7"
   }
 }

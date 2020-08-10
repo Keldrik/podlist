@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   return {
     props: { p, el, pd: pagda },
-    unstable_revalidate: 60,
+    revalidate: 60,
   };
 };
 
