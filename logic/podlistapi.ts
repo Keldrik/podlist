@@ -4,7 +4,7 @@ import { podcast } from '../models/podcast';
 
 const ai = axios.create({
   baseURL: 'https://api2.podlist.de',
-  timeout: 10000,
+  timeout: 5000,
 });
 
 interface allEpisodeResponse {

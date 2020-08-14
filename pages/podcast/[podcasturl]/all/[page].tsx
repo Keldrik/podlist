@@ -5,19 +5,24 @@ import { useRouter } from 'next/router';
 import { episode } from '../../../../models/episode';
 import { podcast } from '../../../../models/podcast';
 import {
-  getPodcastEpisodes,
-  getSinglePodcast,
+  getPodcastEpisodes, getSingleEpisode,
+  getSinglePodcast
 } from '../../../../logic/podlistapi';
 import { Pagination, paginationData } from '../../../../components/pagination';
 import SectionHeader from '../../../../components/sectionheader';
 import EpisodeItem from '../../../../components/episodeitem';
 import Head from 'next/head';
+import Error from 'next/error';
 
 const PodcastPage: NextPage<{
   p: podcast;
   el: episode[];
   pd: paginationData;
-}> = ({ p, el, pd }) => {
+  error: {statusCode: number};
+}> = ({ p, el, pd, error}) => {
+  if (error) {
+    return <Error statusCode={error.statusCode} />
+  }
   const router = useRouter();
   return (
     <div>
@@ -74,12 +79,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const elresponse = await getPodcastEpisodes(
-    params.podcasturl.toString(),
-    parseInt(params.page.toString())
-  );
+  let elresponse;
+  let p: podcast;
+  try {
+    elresponse = await getPodcastEpisodes(
+      params.podcasturl.toString(),
+      parseInt(params.page.toString())
+    );
+    p = await getSinglePodcast(params.podcasturl.toString());
+  } catch (e) {
+    return {
+      props: {
+        error: {
+          statusCode: e.response.status ?? 500
+        },
+      },
+    };
+  }
   const el: episode[] = elresponse.episodes;
-  const p: podcast = await getSinglePodcast(params.podcasturl.toString());
   const pagda: paginationData = JSON.parse(
     JSON.stringify(
       new paginationData(
