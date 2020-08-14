@@ -35,7 +35,6 @@ export const getRandomPodcast = async () => {
 
 export const getAllPodcast = async (page: number = 1) => {
   const result = await ai.get<allPodcastResponse>(`/podcastall?page=${page}`);
-  console.log(result);
   return result.data;
 };
 
