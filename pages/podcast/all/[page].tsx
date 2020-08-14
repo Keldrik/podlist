@@ -1,18 +1,22 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Error from 'next/error';
 
 import { podcast } from '../../../models/podcast';
 import { getAllPodcast } from '../../../logic/podlistapi';
 import PodcastGrid from '../../../components/podcastgrid';
 import { Pagination, paginationData } from '../../../components/pagination';
 import SectionHeader from '../../../components/sectionheader';
-import Head from 'next/head';
 
-const AllPage: NextPage<{ pl: podcast[]; pd: paginationData }> = ({
+const AllPage: NextPage<{ pl: podcast[]; pd: paginationData; error: {statusCode: number} }> = ({
   pl,
-  pd,
+  pd, error
 }) => {
+  if (error) {
+    return <Error statusCode={error.statusCode} />
+  }
   const router = useRouter();
   return (
     <div>
@@ -61,7 +65,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const plresponse = await getAllPodcast(parseInt(params.page.toString()));
+  let plresponse;
+  try {
+    plresponse = await getAllPodcast(parseInt(params.page.toString()));
+  } catch (e) {
+    return {
+      props: {
+        error: {
+          statusCode: e.response.status ?? 500
+        },
+      },
+    };
+  }
   const podcastList: podcast[] = plresponse.podcasts;
   const pagda: paginationData = JSON.parse(
     JSON.stringify(

@@ -3,7 +3,7 @@ import { episode } from '../models/episode';
 import { podcast } from '../models/podcast';
 
 const ai = axios.create({
-  baseURL: 'https://api.podlist.de',
+  baseURL: 'https://api2.podlist.de',
   timeout: 10000,
 });
 
@@ -24,22 +24,23 @@ interface allPodcastResponse {
 }
 
 export const getNewEpisodes = async (page: number = 1) => {
-  const result = await ai.get<allEpisodeResponse>(`/episodenew/${page}`);
+  const result = await ai.get<allEpisodeResponse>(`/episodeall?page=${page}`);
   return result.data;
 };
 
 export const getRandomPodcast = async () => {
-  const result = await ai.get<podcast>('/podcast/random');
+  const result = await ai.get<podcast>('/podcastrandom');
   return result.data;
 };
 
 export const getAllPodcast = async (page: number = 1) => {
-  const result = await ai.get<allPodcastResponse>(`/podcast/all/${page}`);
+  const result = await ai.get<allPodcastResponse>(`/podcastall?page=${page}`);
+  console.log(result);
   return result.data;
 };
 
 export const getSinglePodcast = async (podcasturl: string) => {
-  const result = await ai.get<podcast>(`/podcast/${podcasturl}`);
+  const result = await ai.get<podcast>(`/podcastsingle?podlisturl=${podcasturl}`);
   return result.data;
 };
 
@@ -48,7 +49,7 @@ export const getPodcastEpisodes = async (
   page: number = 1
 ) => {
   const result = await ai.get<allEpisodeResponse>(
-    `/podcast/${podcasturl}/all/${page}`
+    `/episodepodcast?podcasturl=${podcasturl}&page=${page}`
   );
   return result.data;
 };
@@ -57,6 +58,6 @@ export const getSingleEpisode = async (
   podcasturl: string,
   episodeurl: string
 ) => {
-  const result = await ai.get<episode>(`/podcast/${podcasturl}/${episodeurl}`);
+  const result = await ai.get<episode>(`/episodesingle?podcasturl=${podcasturl}&podlisturl=${episodeurl}`);
   return result.data;
 };

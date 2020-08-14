@@ -8,11 +8,15 @@ import { episode } from '../../models/episode';
 import { Pagination, paginationData } from '../../components/pagination';
 import EpisodeList from '../../components/episodelist';
 import Head from 'next/head';
+import Error from 'next/error';
 
-const NewPage: NextPage<{ el: episode[]; pd: paginationData }> = ({
+const NewPage: NextPage<{ el: episode[]; pd: paginationData; error: {statusCode: number} }> = ({
   el,
-  pd,
+  pd, error
 }) => {
+  if (error) {
+    return <Error statusCode={error.statusCode} />
+  }
   const router = useRouter();
   return (
     <div>
@@ -54,7 +58,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const elresponse = await getNewEpisodes(parseInt(params.page.toString()));
+  let elresponse;
+  try {
+    elresponse = await getNewEpisodes(parseInt(params.page.toString()));
+  } catch (e) {
+    return {
+      props: {
+        error: {
+          statusCode: e.response.status ?? 500
+        },
+      },
+    };
+  }
   const episodeList: episode[] = elresponse.episodes;
   const pagda: paginationData = JSON.parse(
     JSON.stringify(
