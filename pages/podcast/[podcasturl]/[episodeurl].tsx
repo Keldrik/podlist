@@ -1,14 +1,18 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
-
-import { getSingleEpisode } from '../../../logic/podlistapi';
-import { episode } from '../../../models/episode';
-import AudioPlayer from '../../../components/audioplayer';
 import Head from 'next/head';
 import Link from 'next/link';
+import Error from 'next/error';
 
-const EpisodePage: NextPage<{ e: episode }> = ({ e }) => {
+import { getAllPodcast, getSingleEpisode } from '../../../logic/podlistapi';
+import { episode } from '../../../models/episode';
+import AudioPlayer from '../../../components/audioplayer';
+
+const EpisodePage: NextPage<{ e: episode, error: {statusCode: number} }> = ({ e, error }) => {
+  if (error) {
+    return <Error statusCode={error.statusCode} />
+  }
   const router = useRouter();
   return (
     <div>
@@ -91,8 +95,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const podcasturl = params.podcasturl.toString();
   const episodeurl = params.episodeurl.toString();
+  let episode;
+  try {
+    episode = await getSingleEpisode(podcasturl, episodeurl);
+  } catch (e) {
+    return {
+      props: {
+        error: {
+          statusCode: e.response.status ?? 500
+        },
+      },
+    };
+  }
   return {
-    props: { e: await getSingleEpisode(podcasturl, episodeurl) },
+    props: { e: episode },
     revalidate: 60,
   };
 };
