@@ -84,12 +84,6 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#1a202c" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#1a202c" />
-          <script
-            async
-            defer
-            data-domain="podlist.de"
-            src="/js/plausible.js"
-          ></script>
         </Head>
         <body>
           <Main />
