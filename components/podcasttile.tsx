@@ -19,7 +19,7 @@ const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
       <a>
         <img
           className="w-full h-auto"
-          src={p.podlistImage}
+          src={`https://cdn.podlist.de/podimg/${p.podlistUrl}.jpg`}
           loading="lazy"
           alt={p.title}
           itemProp="image"

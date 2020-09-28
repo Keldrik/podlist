@@ -142,7 +142,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
         onPlaying={() => setLoading(false)}
       ></audio>
       <div className="w-1/3">
-        <img src={episode.podcastImage} alt={episode.podcastTitle} />
+        <img src={`https://cdn.podlist.de/podimg/${episode.podcastUrl}.jpg`} alt={episode.podcastTitle} />
       </div>
       <div className="flex-1 px-2">{!loading ? playerui : loader}</div>
     </div>

@@ -21,7 +21,7 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         <a>
           <img
             className="h-auto w-full object-cover hover:opacity-75 transition duration-300 ease-in-out"
-            src={e.podcastImage}
+            src={`https://cdn.podlist.de/podimg/${e.podcastUrl}.jpg`}
             loading="lazy"
             alt={e.title}
           />

@@ -20,7 +20,7 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
         <a>
           <img
             className="w-full h-auto hover:opacity-75 transition duration-300 ease-in-out"
-            src={p.podlistImage}
+            src={`https://cdn.podlist.de/podimg/${p.podlistUrl}.jpg`}
             loading="lazy"
             alt={p.title}
             itemProp="image"
