@@ -1,6 +1,7 @@
 import React from 'react';
 import { podcast } from '../models/podcast';
 import Link from 'next/link';
+import { getImgUrl } from '../logic/podimg';
 
 const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
   <div
@@ -20,7 +21,7 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
         <a>
           <img
             className="w-full h-auto hover:opacity-75 transition duration-300 ease-in-out"
-            src={`https://cdn.podlist.de/podimg/${p.podlistUrl}.jpg`}
+            src={getImgUrl(p.podlistUrl)}
             loading="lazy"
             alt={p.title}
             itemProp="image"

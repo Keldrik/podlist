@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Loader from 'react-loader-spinner';
 import { episode } from '../models/episode';
 import { playtimeString } from '../logic/helper';
+import { getImgUrl } from '../logic/podimg';
 
 const useInterval = (callback: () => void, delay: number) => {
   const savedCallback = useRef<() => void>();
@@ -142,7 +143,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
         onPlaying={() => setLoading(false)}
       ></audio>
       <div className="w-1/3">
-        <img src={`https://cdn.podlist.de/podimg/${episode.podcastUrl}.jpg`} alt={episode.podcastTitle} />
+        <img src={getImgUrl(episode.podcastUrl)} />
       </div>
       <div className="flex-1 px-2">{!loading ? playerui : loader}</div>
     </div>

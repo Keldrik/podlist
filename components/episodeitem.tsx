@@ -2,6 +2,7 @@ import React from 'react';
 import { episode } from '../models/episode';
 import { dateHeadText, timeString } from '../logic/helper';
 import Link from 'next/link';
+import { getImgUrl } from '../logic/podimg';
 
 const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
   <div
@@ -21,7 +22,7 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         <a>
           <img
             className="h-auto w-full object-cover hover:opacity-75 transition duration-300 ease-in-out"
-            src={`https://cdn.podlist.de/podimg/${e.podcastUrl}.jpg`}
+            src={getImgUrl(e.podcastUrl)}
             loading="lazy"
             alt={e.title}
           />

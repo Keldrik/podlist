@@ -1,6 +1,7 @@
 import React from 'react';
 import { podcast } from '../models/podcast';
 import Link from 'next/link';
+import { getImgUrl } from '../logic/podimg';
 
 const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
   <div
@@ -19,7 +20,7 @@ const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
       <a>
         <img
           className="w-full h-auto"
-          src={`https://cdn.podlist.de/podimg/${p.podlistUrl}.jpg`}
+          src={getImgUrl(p.podlistUrl)}
           loading="lazy"
           alt={p.title}
           itemProp="image"

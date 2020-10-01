@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Error from 'next/error';
 
-import { getAllPodcast, getSingleEpisode } from '../../../logic/podlistapi';
+import { getSingleEpisode } from '../../../logic/podlistapi';
 import { episode } from '../../../models/episode';
 import AudioPlayer from '../../../components/audioplayer';
 
