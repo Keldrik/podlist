@@ -88,25 +88,11 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script type="text/javascript">
-            var sc_project = 12402784; var sc_invisible = 1; var
-            sc_security = "7aaa2fd8"; var sc_https = 1; var sc_remove_link = 1;
+          <script type="text/javascript" src="/js/stat.js">
           </script>
-          <script
-            type="text/javascript"
-            src="https://www.statcounter.com/counter/counter.js"
-            async
-          ></script>
-          <noscript>
-            <div className="statcounter">
-              <img
-                className="statcounter"
-                src="https://c.statcounter.com/12402784/0/7aaa2fd8/1/"
-                alt="Web
-Analytics"
-              />
-            </div>
-          </noscript>
+          <script type="text/javascript"
+                  src="https://www.statcounter.com/counter/counter.js"
+                  async></script>
         </body>
       </Html>
     );
