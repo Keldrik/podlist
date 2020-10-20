@@ -88,11 +88,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script type="text/javascript" src="/js/stat.js">
-          </script>
-          <script type="text/javascript"
-                  src="https://www.statcounter.com/counter/counter.js"
-                  async></script>
         </body>
       </Html>
     );
