@@ -5,8 +5,9 @@ import { useRouter } from 'next/router';
 import { episode } from '../../../../models/episode';
 import { podcast } from '../../../../models/podcast';
 import {
-  getPodcastEpisodes, getSingleEpisode,
-  getSinglePodcast
+  getPodcastEpisodes,
+  getSingleEpisode,
+  getSinglePodcast,
 } from '../../../../logic/podlistapi';
 import { Pagination, paginationData } from '../../../../components/pagination';
 import SectionHeader from '../../../../components/sectionheader';
@@ -18,10 +19,10 @@ const PodcastPage: NextPage<{
   p: podcast;
   el: episode[];
   pd: paginationData;
-  error: {statusCode: number};
-}> = ({ p, el, pd, error}) => {
+  error: { statusCode: number };
+}> = ({ p, el, pd, error }) => {
   if (error) {
-    return <Error statusCode={error.statusCode} />
+    return <Error statusCode={error.statusCode} />;
   }
   const router = useRouter();
   return (
@@ -91,7 +92,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         error: {
-          statusCode: e.response.status ?? 500
+          statusCode: e.response.status ?? 500,
         },
       },
     };
@@ -109,7 +110,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   return {
     props: { p, el, pd: pagda },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

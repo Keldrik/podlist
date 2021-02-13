@@ -11,7 +11,7 @@ body {
 /* purgecss end ignore */
 
 .paggrpbtn {
-    @apply relative inline-flex items-center p-1 w-10 border-l border-gray-900 bg-orange-500 text-xl font-semibold;
+    @apply relative inline-flex items-center p-1 w-10 border-l border-gray-900 bg-yellow-500 text-xl font-semibold;
 }
 
 .episodeContent h1 {
@@ -31,7 +31,7 @@ body {
 }
 
 .episodeContent a {
-    @apply text-orange-500
+    @apply text-yellow-500
 }
 
 .episodeContent a:hover {

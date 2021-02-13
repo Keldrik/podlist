@@ -37,7 +37,7 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         >
           <a>
             <h3
-              className="truncate font-semibold text-lg hover:text-orange-500 transition duration-300 ease-in-out"
+              className="truncate font-semibold text-lg hover:text-yellow-500 transition duration-300 ease-in-out"
               itemProp="name"
             >
               {e.title}
@@ -60,7 +60,7 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         >
           <a>
             <h4
-              className="truncate font-medium pt-1 hover:text-orange-500 transition duration-300 ease-in-out"
+              className="truncate font-medium pt-1 hover:text-yellow-500 transition duration-300 ease-in-out"
               itemProp="name"
             >
               {e.podcastTitle}

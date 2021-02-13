@@ -10,12 +10,13 @@ import PodcastGrid from '../../../components/podcastgrid';
 import { Pagination, paginationData } from '../../../components/pagination';
 import SectionHeader from '../../../components/sectionheader';
 
-const AllPage: NextPage<{ pl: podcast[]; pd: paginationData; error: {statusCode: number} }> = ({
-  pl,
-  pd, error
-}) => {
+const AllPage: NextPage<{
+  pl: podcast[];
+  pd: paginationData;
+  error: { statusCode: number };
+}> = ({ pl, pd, error }) => {
   if (error) {
-    return <Error statusCode={error.statusCode} />
+    return <Error statusCode={error.statusCode} />;
   }
   const router = useRouter();
   return (
@@ -72,7 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         error: {
-          statusCode: e.response.status ?? 500
+          statusCode: e.response.status ?? 500,
         },
       },
     };
@@ -90,7 +91,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   return {
     props: { pl: podcastList, pd: pagda },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

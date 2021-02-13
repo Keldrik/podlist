@@ -10,12 +10,13 @@ import EpisodeList from '../../components/episodelist';
 import Head from 'next/head';
 import Error from 'next/error';
 
-const NewPage: NextPage<{ el: episode[]; pd: paginationData; error: {statusCode: number} }> = ({
-  el,
-  pd, error
-}) => {
+const NewPage: NextPage<{
+  el: episode[];
+  pd: paginationData;
+  error: { statusCode: number };
+}> = ({ el, pd, error }) => {
   if (error) {
-    return <Error statusCode={error.statusCode} />
+    return <Error statusCode={error.statusCode} />;
   }
   const router = useRouter();
   return (
@@ -65,7 +66,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         error: {
-          statusCode: e.response.status ?? 500
+          statusCode: e.response.status ?? 500,
         },
       },
     };
@@ -83,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   );
   return {
     props: { el: episodeList, pd: pagda },
-    revalidate: 60,
+    revalidate: 600,
   };
 };
 

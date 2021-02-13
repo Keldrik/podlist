@@ -36,7 +36,7 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
       >
         <a>
           <h3
-            className="text-3xl lg:text-4xl pb-1 pt-2 md:pt-4 hover:text-orange-500"
+            className="text-3xl lg:text-4xl pb-1 pt-2 md:pt-4 hover:text-yellow-500"
             itemProp="name"
           >
             {p.title.substring(0, 60)}

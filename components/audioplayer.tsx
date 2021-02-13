@@ -76,21 +76,21 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
         <div>
           <div className="pb-1 pt-5 px-3">
             <div
-              className="h-2 bg-orange-700 rounded-full"
+              className="h-2 bg-yellow-700 rounded-full"
               onClick={progressClick}
               ref={progressbar}
             >
               {currentTime > 0 ? (
                 <div
-                  className="h-2 bg-orange-300 rounded-full relative"
+                  className="h-2 bg-yellow-300 rounded-full relative"
                   style={{ width: (currentTime / duration) * 100 + '%' }}
                 >
-                  <span className="w-4 h-4 bg-orange-200 absolute right-0 -m-1 rounded-full shadow hover:bg-orange-400 transition duration-200 ease-in-out"></span>
+                  <span className="w-4 h-4 bg-yellow-200 absolute right-0 -m-1 rounded-full shadow hover:bg-yellow-400 transition duration-200 ease-in-out"></span>
                 </div>
               ) : null}
             </div>
           </div>
-          <div className="px-3 text-orange-300 flex justify-between">
+          <div className="px-3 text-yellow-300 flex justify-between">
             <p>{playtimeString(currentTime)}</p>
             <p>{playtimeString(duration)}</p>
           </div>
@@ -100,7 +100,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
         <button className="py-2 focus:outline-none" onClick={togglePlay}>
           {isPlaying ? (
             <svg
-              className="w-8 h-8 fill-current text-orange-700 hover:text-orange-400 transition duration-200 ease-in-out"
+              className="w-8 h-8 fill-current text-yellow-700 hover:text-yellow-400 transition duration-200 ease-in-out"
               viewBox="0 0 500 500"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -109,7 +109,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
             </svg>
           ) : (
             <svg
-              className="w-8 w-8 fill-current text-orange-700 hover:text-orange-400 transition duration-200 ease-in-out"
+              className="w-8 w-8 fill-current text-yellow-700 hover:text-yellow-400 transition duration-200 ease-in-out"
               viewBox="0 0 500 500"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -123,13 +123,14 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
 
   return (
     <div
-      className="bg-orange-500 shadow-md flex items-center lg:w-2/3 my-6"
+      className="bg-yellow-500 shadow-md flex items-center lg:w-2/3 my-6"
       itemProp="audio"
       itemScope
       itemType="http://schema.org/AudioObject"
     >
       <meta itemProp="url" content={episode.enclosure.url} />
       <audio
+        className="w-0 h-0"
         ref={audioElement}
         src={episode.enclosure.url}
         onPlay={() => {

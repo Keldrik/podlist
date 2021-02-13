@@ -9,9 +9,12 @@ import { getSingleEpisode } from '../../../logic/podlistapi';
 import { episode } from '../../../models/episode';
 import AudioPlayer from '../../../components/audioplayer';
 
-const EpisodePage: NextPage<{ e: episode, error: {statusCode: number} }> = ({ e, error }) => {
+const EpisodePage: NextPage<{ e: episode; error: { statusCode: number } }> = ({
+  e,
+  error,
+}) => {
   if (error) {
-    return <Error statusCode={error.statusCode} />
+    return <Error statusCode={error.statusCode} />;
   }
   const router = useRouter();
   return (
@@ -62,7 +65,7 @@ const EpisodePage: NextPage<{ e: episode, error: {statusCode: number} }> = ({ e,
             >
               <a>
                 <h2
-                  className="text-xl pb-4 text-gray-500 hover:text-orange-500"
+                  className="text-xl pb-4 text-gray-500 hover:text-yellow-500"
                   itemProp="name"
                 >
                   {e.podcastTitle}
@@ -102,14 +105,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return {
       props: {
         error: {
-          statusCode: e.response.status ?? 500
+          statusCode: e.response.status ?? 500,
         },
       },
     };
   }
   return {
     props: { e: episode },
-    revalidate: 60,
+    revalidate: 3600,
   };
 };
 

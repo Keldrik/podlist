@@ -4,7 +4,7 @@ import { podcast } from '../models/podcast';
 
 const ai = axios.create({
   baseURL: 'https://api.podlist.de',
-  timeout: 10000,
+  timeout: 2000,
 });
 
 interface allEpisodeResponse {
@@ -57,6 +57,8 @@ export const getSingleEpisode = async (
   podcasturl: string,
   episodeurl: string
 ) => {
-  const result = await ai.get<episode>(`/episode/single/${podcasturl}/${episodeurl}`);
+  const result = await ai.get<episode>(
+    `/episode/single/${podcasturl}/${episodeurl}`
+  );
   return result.data;
 };

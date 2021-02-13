@@ -29,7 +29,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
       <div className="flex-1 flex justify-between sm:hidden items-center">
         {pd.previous ? (
           <Link href={pd.url + pd.page} as={pd.previousas}>
-            <a className="relative inline-flex py-2 text-xl leading-relaxed font-semibold uppercase bg-orange-500 w-24 hover:bg-orange-400">
+            <a className="relative inline-flex py-2 text-xl leading-relaxed font-semibold uppercase bg-yellow-500 w-24 hover:bg-yellow-400">
               <span className="text-center w-full">Zurück</span>
             </a>
           </Link>
@@ -37,7 +37,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
         <span className="text-xl">{`Seite ${pd.current.toString()} / ${pd.max.toString()}`}</span>
         {pd.next < pd.max + 1 ? (
           <Link href={pd.url + pd.page} as={pd.nextas}>
-            <a className="ml-3 relative inline-flex px-1 py-2 text-xl leading-relaxed font-semibold uppercase bg-orange-500 w-24 hover:bg-orange-400">
+            <a className="ml-3 relative inline-flex px-1 py-2 text-xl leading-relaxed font-semibold uppercase bg-yellow-500 w-24 hover:bg-yellow-400">
               <span className="text-center w-full">Weiter</span>
             </a>
           </Link>
@@ -48,7 +48,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
         <div>
           <div className="relative z-0 inline-flex shadow-sm">
             {pd.previous ? (
-              <div className="paggrpbtn hover:bg-orange-400">
+              <div className="paggrpbtn hover:bg-yellow-400">
                 <Link href={pd.url + pd.page} as={pd.previousas}>
                   <a>
                     <svg
@@ -64,7 +64,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.current - 3 > 0 ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link
                   href={pd.url + pd.page}
                   as={pd.url + (pd.current - 3).toString()}
@@ -77,7 +77,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.current - 2 > 0 ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link
                   href={pd.url + pd.page}
                   as={pd.url + (pd.current - 2).toString()}
@@ -90,21 +90,21 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.previous ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link href={pd.url + pd.page} as={pd.previousas}>
                   <a className="w-full text-center">{pd.previous.toString()}</a>
                 </Link>
               </div>
             ) : null}
 
-            <div className="-ml-px paggrpbtn bg-orange-300">
+            <div className="-ml-px paggrpbtn bg-yellow-300">
               <span className="w-full text-center text-gray-900">
                 {pd.current.toString()}
               </span>
             </div>
 
             {pd.next < pd.max + 1 ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link href={pd.url + pd.page} as={pd.nextas}>
                   <a className="w-full text-center">{pd.next.toString()}</a>
                 </Link>
@@ -112,7 +112,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.current + 2 < pd.max + 1 ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link
                   href={pd.url + pd.page}
                   as={pd.url + (pd.current + 2).toString()}
@@ -125,7 +125,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.current + 3 < pd.max + 1 ? (
-              <div className="-ml-px paggrpbtn hover:bg-orange-400">
+              <div className="-ml-px paggrpbtn hover:bg-yellow-400">
                 <Link
                   href={pd.url + pd.page}
                   as={pd.url + (pd.current + 3).toString()}
@@ -138,7 +138,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
             ) : null}
 
             {pd.next < pd.max + 1 ? (
-              <div className="paggrpbtn hover:bg-orange-400">
+              <div className="paggrpbtn hover:bg-yellow-400">
                 <Link href={pd.url + pd.page} as={pd.nextas}>
                   <a>
                     <svg
