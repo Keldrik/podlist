@@ -43,7 +43,7 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
           </h3>
         </a>
       </Link>
-      <p className="text-gray-500 lg:text-xl md:pb-6" itemProp="description">
+      <p className="text-gray-400 lg:text-xl md:pb-6" itemProp="description">
         {p.description.length < 250
           ? p.description.substring(0, 250)
           : p.description.substring(0, 250) + ' ...'}

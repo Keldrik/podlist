@@ -65,7 +65,7 @@ const EpisodePage: NextPage<{ e: episode; error: { statusCode: number } }> = ({
             >
               <a>
                 <h2
-                  className="text-xl pb-4 text-gray-500 hover:text-yellow-500"
+                  className="text-xl pb-4 text-gray-400 hover:text-yellow-500"
                   itemProp="name"
                 >
                   {e.podcastTitle}
@@ -74,6 +74,13 @@ const EpisodePage: NextPage<{ e: episode; error: { statusCode: number } }> = ({
             </Link>
           </div>
           <AudioPlayer episode={e}></AudioPlayer>
+          <div className="pb-4 flex">
+            <a href={e.enclosure.url} download>
+              <div className="bg-yellow-500 uppercase text-yellow-100 text-lg font-semibold tracking-wider px-3 py-2 hover:text-yellow-800">
+                Download
+              </div>
+            </a>
+          </div>
           <div
             className="episodeContent pt-4"
             itemProp="description"

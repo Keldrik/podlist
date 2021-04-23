@@ -68,7 +68,7 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
           </a>
         </Link>
       </div>
-      <p className="pt-2 text-gray-500 text-sm">{`${timeString(
+      <p className="pt-2 text-gray-400 text-sm">{`${timeString(
         new Date(e.published)
       )} - ${dateHeadText(new Date(e.published))}`}</p>
     </div>
