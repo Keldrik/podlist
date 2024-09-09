@@ -18,24 +18,18 @@ const PodcastTile: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
       href="/podcast/[podcasturl]/all/[page]"
       as={`/podcast/${p.podlistUrl}/all/1`}
     >
-      <a>
-        {/*<Image*/}
-        {/*  src={`/${p.podlistUrl}.jpg`}*/}
-        {/*  alt={p.title}*/}
-        {/*  width={300}*/}
-        {/*  height={300}*/}
-        {/*/>*/}
-        <img
-          className="w-full h-auto"
-          src={getImgUrl(p.podlistUrl)}
-          loading="lazy"
-          alt={p.title}
-          itemProp="image"
-        />
-        <h3 className="p-2 truncate text-center font-semibold" itemProp="name">
-          {p.title}
-        </h3>
-      </a>
+
+      <img
+        className="w-full h-auto"
+        src={getImgUrl(p.podlistUrl)}
+        loading="lazy"
+        alt={p.title}
+        itemProp="image"
+      />
+      <h3 className="p-2 truncate text-center font-semibold" itemProp="name">
+        {p.title}
+      </h3>
+
     </Link>
   </div>
 );

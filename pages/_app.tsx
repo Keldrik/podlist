@@ -2,7 +2,6 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import '../styles/index.css';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import * as Fathom from 'fathom-client';
 import Header from '../components/header';
 import Footer from '../components/footer';

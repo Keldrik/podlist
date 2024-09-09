@@ -63,14 +63,14 @@ const EpisodePage: NextPage<{ e: episode; error: { statusCode: number } }> = ({
               href="/podcast/[podcasturl]/all/[page]"
               as={`/podcast/${e.podcastUrl}/all/1`}
             >
-              <a>
-                <h2
-                  className="text-xl pb-4 text-gray-400 hover:text-yellow-500"
-                  itemProp="name"
-                >
-                  {e.podcastTitle}
-                </h2>
-              </a>
+
+              <h2
+                className="text-xl pb-4 text-gray-400 hover:text-yellow-500"
+                itemProp="name"
+              >
+                {e.podcastTitle}
+              </h2>
+
             </Link>
           </div>
           <AudioPlayer episode={e}></AudioPlayer>

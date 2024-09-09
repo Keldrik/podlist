@@ -19,14 +19,14 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
         href="/podcast/[podcasturl]/[episodeurl]"
         as={`/podcast/${e.podcastUrl}/${e.podlistUrl}`}
       >
-        <a>
-          <img
-            className="h-auto w-full object-cover hover:opacity-75 transition duration-300 ease-in-out"
-            src={getImgUrl(e.podcastUrl)}
-            loading="lazy"
-            alt={e.title}
-          />
-        </a>
+
+        <img
+          className="h-auto w-full object-cover hover:opacity-75 transition duration-300 ease-in-out"
+          src={getImgUrl(e.podcastUrl)}
+          loading="lazy"
+          alt={e.title}
+        />
+
       </Link>
     </div>
     <div className="w-full md:col-span-2 xl:col-span-3 pt-4 md:pt-2 pb-4 px-3 bg-gray-800">
@@ -35,14 +35,14 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
           href="/podcast/[podcasturl]/[episodeurl]"
           as={`/podcast/${e.podcastUrl}/${e.podlistUrl}`}
         >
-          <a>
-            <h3
-              className="truncate font-semibold text-lg hover:text-yellow-500 transition duration-300 ease-in-out"
-              itemProp="name"
-            >
-              {e.title}
-            </h3>
-          </a>
+
+          <h3
+            className="truncate font-semibold text-lg hover:text-yellow-500 transition duration-300 ease-in-out"
+            itemProp="name"
+          >
+            {e.title}
+          </h3>
+
         </Link>
       </div>
       <div
@@ -58,14 +58,14 @@ const EpisodeItem: React.FunctionComponent<{ e: episode }> = ({ e }) => (
           href="/podcast/[podcasturl]/all/[page]"
           as={`/podcast/${e.podcastUrl}/all/1`}
         >
-          <a>
-            <h4
-              className="truncate font-medium pt-1 hover:text-yellow-500 transition duration-300 ease-in-out"
-              itemProp="name"
-            >
-              {e.podcastTitle}
-            </h4>
-          </a>
+
+          <h4
+            className="truncate font-medium pt-1 hover:text-yellow-500 transition duration-300 ease-in-out"
+            itemProp="name"
+          >
+            {e.podcastTitle}
+          </h4>
+
         </Link>
       </div>
       <p className="pt-2 text-gray-400 text-sm">{`${timeString(

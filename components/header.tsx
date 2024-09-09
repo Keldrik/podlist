@@ -15,12 +15,12 @@ const Header: React.FunctionComponent = () => {
           <ul className="hidden md:flex justify-between h-full pb-2 text-xl">
             <li className="inline-block self-end hover:text-yellow-500 transition duration-300 ease-in-out mr-16">
               <Link href="/new/[page]" as="/new/1">
-                <a>NEU</a>
+                NEU
               </Link>
             </li>
             <li className="inline-block self-end hover:text-yellow-500 transition duration-300 ease-in-out">
               <Link href="/podcast/all/[page]" as="/podcast/all/1">
-                <a>PODCASTS</a>
+                PODCASTS
               </Link>
             </li>
             {/*<li className="inline-block self-end">ABOUT</li>*/}
@@ -46,13 +46,16 @@ const Header: React.FunctionComponent = () => {
       >
         <ul className="text-2xl">
           <li className="pb-2 hover:text-yellow-500 transition duration-300 ease-in-out">
-            <Link href="/new/[page]" as="/new/1">
-              <a onClick={() => setMenushow(false)}>NEU</a>
+            <Link href="/new/[page]" as="/new/1" onClick={() => setMenushow(false)}>
+              NEU
             </Link>
           </li>
           <li className="border-t border-gray-700 py-2 hover:text-yellow-500 transition duration-300 ease-in-out">
-            <Link href="/podcast/all/[page]" as="/podcast/all/1">
-              <a onClick={() => setMenushow(false)}>PODCASTS</a>
+            <Link
+              href="/podcast/all/[page]"
+              as="/podcast/all/1"
+              onClick={() => setMenushow(false)}>
+              PODCASTS
             </Link>
           </li>
           {/*<li className="border-t border-gray-700 pt-2">ABOUT</li>*/}

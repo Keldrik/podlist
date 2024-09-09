@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Loader from 'react-loader-spinner';
+import {ThreeDots} from 'react-loader-spinner';
 import { episode } from '../models/episode';
 import { playtimeString } from '../logic/helper';
 import { getImgUrl } from '../logic/podimg';
@@ -66,7 +66,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
 
   const loader = (
     <div className="h-full w-full flex items-center justify-around">
-      <Loader type="ThreeDots" color="#c05621" height={90} width={90} />
+      <ThreeDots color="#c05621" height={90} width={90} />
     </div>
   );
 

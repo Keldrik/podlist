@@ -24,7 +24,7 @@ interface allPodcastResponse {
 }
 
 export const getNewEpisodes = async (page: number = 1) => {
-  const result = await ai.get<allEpisodeResponse>(`/episode/all/${page}`);
+  const result = await ai.get<allEpisodeResponse>(`/episode/all?page=${page}`);
   return result.data;
 };
 
@@ -34,7 +34,7 @@ export const getRandomPodcast = async () => {
 };
 
 export const getAllPodcast = async (page: number = 1) => {
-  const result = await ai.get<allPodcastResponse>(`/podcast/all/${page}`);
+  const result = await ai.get<allPodcastResponse>(`/podcast/all?page=${page}`);
   return result.data;
 };
 
@@ -48,7 +48,7 @@ export const getPodcastEpisodes = async (
   page: number = 1
 ) => {
   const result = await ai.get<allEpisodeResponse>(
-    `/episode/podcast/${podcasturl}/${page}`
+    `/episode/podcast/${podcasturl}?page=${page}`
   );
   return result.data;
 };
