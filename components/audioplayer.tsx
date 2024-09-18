@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {ThreeDots} from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import { episode } from '../models/episode';
 import { playtimeString } from '../logic/helper';
 import { getImgUrl } from '../logic/podimg';
@@ -61,7 +61,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
     () => {
       setCurrentTime(audioElement.current.currentTime);
     },
-    isPlaying ? 100 : null
+    isPlaying ? 100 : null,
   );
 
   const loader = (

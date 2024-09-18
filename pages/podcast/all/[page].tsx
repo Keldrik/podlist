@@ -85,9 +85,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         '/podcast/all/',
         '[page]',
         plresponse.lastPage,
-        plresponse.page
-      )
-    )
+        plresponse.page,
+      ),
+    ),
   );
   return {
     props: { pl: podcastList, pd: pagda },

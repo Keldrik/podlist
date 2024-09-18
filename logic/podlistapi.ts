@@ -45,20 +45,20 @@ export const getSinglePodcast = async (podcasturl: string) => {
 
 export const getPodcastEpisodes = async (
   podcasturl: string,
-  page: number = 1
+  page: number = 1,
 ) => {
   const result = await ai.get<allEpisodeResponse>(
-    `/episode/podcast/${podcasturl}?page=${page}`
+    `/episode/podcast/${podcasturl}?page=${page}`,
   );
   return result.data;
 };
 
 export const getSingleEpisode = async (
   podcasturl: string,
-  episodeurl: string
+  episodeurl: string,
 ) => {
   const result = await ai.get<episode>(
-    `/episode/single/${podcasturl}/${episodeurl}`
+    `/episode/single/${podcasturl}/${episodeurl}`,
   );
   return result.data;
 };

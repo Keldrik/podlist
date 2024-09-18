@@ -78,9 +78,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         '/new/',
         '[page]',
         elresponse.lastPage,
-        elresponse.page
-      )
-    )
+        elresponse.page,
+      ),
+    ),
   );
   return {
     props: { el: episodeList, pd: pagda },

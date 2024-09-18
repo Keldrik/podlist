@@ -18,7 +18,6 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
         href="/podcast/[podcasturl]/all/[page]"
         as={`/podcast/${p.podlistUrl}/all/1`}
       >
-
         <img
           className="w-full h-auto hover:opacity-75 transition duration-300 ease-in-out"
           src={getImgUrl(p.podlistUrl)}
@@ -26,7 +25,6 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
           alt={p.title}
           itemProp="image"
         />
-
       </Link>
     </div>
     <div className="md:w-2/3 md:pr-6">
@@ -34,14 +32,12 @@ const PodcastFeature: React.FunctionComponent<{ p: podcast }> = ({ p }) => (
         href="/podcast/[podcasturl]/all/[page]"
         as={`/podcast/${p.podlistUrl}/all/1`}
       >
-
         <h3
           className="text-3xl lg:text-4xl pb-1 pt-2 md:pt-4 hover:text-yellow-500"
           itemProp="name"
         >
           {p.title.substring(0, 60)}
         </h3>
-
       </Link>
       <p className="text-gray-400 lg:text-xl md:pb-6" itemProp="description">
         {p.description.length < 250

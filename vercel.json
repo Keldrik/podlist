@@ -1,8 +1,0 @@
-{
-  "redirects": [
-    { "source": "/neu/index/:page", "destination": "/new/:page" },
-    { "source": "/podcast/alle/:page", "destination": "/podcast/all/:page" },
-    { "source": "/podcast/auswahl/:podcasturl/:page", "destination": "/podcast/:podcasturl/all/:page" },
-    { "source": "/podcast/episode/:podcasturl/:episodeurl", "destination": "/podcast/:podcasturl/:episodeurl" }
-  ]
-}

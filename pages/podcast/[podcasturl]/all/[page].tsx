@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     elresponse = await getPodcastEpisodes(
       params.podcasturl.toString(),
-      parseInt(params.page.toString())
+      parseInt(params.page.toString()),
     );
     p = await getSinglePodcast(params.podcasturl.toString());
   } catch (e) {
@@ -104,9 +104,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         `/podcast/${params.podcasturl.toString()}/all/`,
         '[page]',
         elresponse.lastPage,
-        elresponse.page
-      )
-    )
+        elresponse.page,
+      ),
+    ),
   );
   return {
     props: { p, el, pd: pagda },

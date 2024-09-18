@@ -4,7 +4,6 @@ import Link from 'next/link';
 const Logo: React.FunctionComponent = () => (
   <div className="flex-1">
     <Link href="/">
-
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="fill-current text-yellow-500 h-8 inline-block align-middle mr-1 hover:text-gray-400 transition duration-300 ease-in-out"
@@ -15,7 +14,6 @@ const Logo: React.FunctionComponent = () => (
       <h1 className="text-4xl inline-block align-middle pb-1 hover:text-yellow-500 transition duration-300 ease-in-out">
         PODLIST
       </h1>
-
     </Link>
   </div>
 );

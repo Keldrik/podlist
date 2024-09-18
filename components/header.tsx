@@ -23,7 +23,6 @@ const Header: React.FunctionComponent = () => {
                 PODCASTS
               </Link>
             </li>
-            {/*<li className="inline-block self-end">ABOUT</li>*/}
           </ul>
           <button
             className={menuclasses}
@@ -46,7 +45,11 @@ const Header: React.FunctionComponent = () => {
       >
         <ul className="text-2xl">
           <li className="pb-2 hover:text-yellow-500 transition duration-300 ease-in-out">
-            <Link href="/new/[page]" as="/new/1" onClick={() => setMenushow(false)}>
+            <Link
+              href="/new/[page]"
+              as="/new/1"
+              onClick={() => setMenushow(false)}
+            >
               NEU
             </Link>
           </li>
@@ -54,11 +57,11 @@ const Header: React.FunctionComponent = () => {
             <Link
               href="/podcast/all/[page]"
               as="/podcast/all/1"
-              onClick={() => setMenushow(false)}>
+              onClick={() => setMenushow(false)}
+            >
               PODCASTS
             </Link>
           </li>
-          {/*<li className="border-t border-gray-700 pt-2">ABOUT</li>*/}
         </ul>
       </div>
     </header>
