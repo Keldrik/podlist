@@ -5,7 +5,7 @@ import { playtimeString } from '../logic/helper';
 import { getImgUrl } from '../logic/podimg';
 
 const useInterval = (callback: () => void, delay: number) => {
-  const savedCallback = useRef<() => void>();
+  const savedCallback = useRef<(() => void) | null>(null);
 
   // Remember the latest callback.
   useEffect(() => {
@@ -15,7 +15,7 @@ const useInterval = (callback: () => void, delay: number) => {
   // Set up the interval.
   useEffect(() => {
     function tick() {
-      savedCallback.current();
+      savedCallback.current?.();
     }
     if (delay !== null) {
       let id = setInterval(tick, delay);
