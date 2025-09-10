@@ -50,7 +50,7 @@ export const Pagination: React.FunctionComponent<{ pd: paginationData }> = ({
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <span className="text-xl">{`Seite ${pd.current.toString()} / ${pd.max.toString()}`}</span>
         <div>
-          <div className="relative z-0 inline-flex shadow-sm">
+          <div className="relative z-0 inline-flex shadow-xs">
             {pd.previous ? (
               <div className="paggrpbtn hover:bg-yellow-400">
                 <Link href={pd.url + pd.page} as={pd.previousas}>

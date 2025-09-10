@@ -23,8 +23,7 @@ const AllPage: NextPage<{
     <div>
       <Head>
         <title>
-          Alle Podcasts Seite {pd?.current} - Podlist.de - Das deutsche Podcast
-          Verzeichnis
+          {`Alle Podcasts Seite ${pd?.current || ''} - Podlist.de - Das deutsche Podcast Verzeichnis`}
         </title>
         <meta
           name="description"
@@ -43,10 +42,12 @@ const AllPage: NextPage<{
         <section className="pt-2 pb-8">
           <SectionHeader
             title={
-              'Verzeichnis ' +
-              pl[0].podlistUrl[0].toUpperCase() +
-              ' - ' +
-              pl[pl.length - 1].podlistUrl[0].toUpperCase()
+              pl?.length > 0 && pl[0]?.podlistUrl && pl[pl.length - 1]?.podlistUrl
+                ? 'Verzeichnis ' +
+                  pl[0].podlistUrl.charAt(0).toUpperCase() +
+                  ' - ' +
+                  pl[pl.length - 1].podlistUrl.charAt(0).toUpperCase()
+                : 'Podcast Verzeichnis'
             }
           />
           <PodcastGrid pl={pl} />

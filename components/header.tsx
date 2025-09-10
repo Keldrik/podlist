@@ -5,8 +5,8 @@ import Logo from './logo';
 const Header: React.FunctionComponent = () => {
   const [menushow, setMenushow] = useState<boolean>(false);
   const menuclasses = menushow
-    ? 'h-full float-right focus:outline-none transform rotate-90 transition duration-300 md:hidden'
-    : 'h-full float-right focus:outline-none transform transition duration-300 md:hidden';
+    ? 'h-full float-right focus:outline-hidden transform rotate-90 transition duration-300 md:hidden'
+    : 'h-full float-right focus:outline-hidden transform transition duration-300 md:hidden';
   return (
     <header className="border-b border-gray-600">
       <div className="flex">

@@ -21,8 +21,7 @@ const EpisodePage: NextPage<{ e: episode; error: { statusCode: number } }> = ({
     <div>
       <Head>
         <title>
-          {e?.title} - {e?.podcastTitle} - Podlist.de - Das deutsche Podcast
-          Verzeichnis
+          {`${e?.title || ''} - ${e?.podcastTitle || ''} - Podlist.de - Das deutsche Podcast Verzeichnis`}
         </title>
         <meta
           name="description"

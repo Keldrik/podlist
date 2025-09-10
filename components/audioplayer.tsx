@@ -85,7 +85,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
                   className="h-2 bg-yellow-300 rounded-full relative"
                   style={{ width: (currentTime / duration) * 100 + '%' }}
                 >
-                  <span className="w-4 h-4 bg-yellow-200 absolute right-0 -m-1 rounded-full shadow hover:bg-yellow-400 transition duration-200 ease-in-out"></span>
+                  <span className="w-4 h-4 bg-yellow-200 absolute right-0 -m-1 rounded-full shadow-sm hover:bg-yellow-400 transition duration-200 ease-in-out"></span>
                 </div>
               ) : null}
             </div>
@@ -97,7 +97,7 @@ const AudioPlayer: React.FunctionComponent<{ episode: episode }> = ({
         </div>
       ) : null}
       <div className="flex justify-around items-center">
-        <button className="py-2 focus:outline-none" onClick={togglePlay}>
+        <button className="py-2 focus:outline-hidden" onClick={togglePlay}>
           {isPlaying ? (
             <svg
               className="w-8 h-8 fill-current text-yellow-700 hover:text-yellow-400 transition duration-200 ease-in-out"

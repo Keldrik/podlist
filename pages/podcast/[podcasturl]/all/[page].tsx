@@ -29,8 +29,7 @@ const PodcastPage: NextPage<{
     <div>
       <Head>
         <title>
-          {p?.title} Seite {pd?.current} - Podlist.de - Das deutsche Podcast
-          Verzeichnis
+          {`${p?.title || ''} Seite ${pd?.current || ''} - Podlist.de - Das deutsche Podcast Verzeichnis`}
         </title>
         <meta
           name="description"
@@ -60,7 +59,7 @@ const PodcastPage: NextPage<{
             <SectionHeader title="Neue Episoden" />
             <div className="flex flex-wrap">
               {el.map((e, i) => (
-                <EpisodeItem e={e} />
+                <EpisodeItem key={e.podlistUrl || i} e={e} />
               ))}
             </div>
             <Pagination pd={pd} />

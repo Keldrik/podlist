@@ -23,8 +23,7 @@ const NewPage: NextPage<{
     <div>
       <Head>
         <title>
-          Neue Episoden Seite {pd?.current} - Podlist.de - Das deutsche Podcast
-          Verzeichnis
+          {`Neue Episoden Seite ${pd?.current || ''} - Podlist.de - Das deutsche Podcast Verzeichnis`}
         </title>
         <meta
           name="description"

@@ -22,7 +22,7 @@ const EpisodeList: React.FunctionComponent<{ el: episode[] }> = ({ el }) => {
         return (
           <>
             {dateHead}
-            <EpisodeItem e={e} />
+            <EpisodeItem e={e} key={`${e.podcastUrl}-${e.podlistUrl}`} />
           </>
         );
       })}
